@@ -1,3 +1,5 @@
+'use strict';
+
 const tailwindcss = require("tailwindcss");
 
 // only needed if you want to purge
@@ -8,9 +10,8 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
 
 module.exports = {
   plugins: [
-    require('postcss-import'),
-	  require('tailwindcss'),
-	  require('autoprefixer'),
+  	require('postcss-import'),
+  	tailwindcss("./tailwind.config.js"),
 
     // only needed if you want to purge
     ...(process.env.NODE_ENV === "production" ? [purgecss] : [])
