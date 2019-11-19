@@ -4,11 +4,9 @@ import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import svelte from 'rollup-plugin-svelte';
 import { terser } from 'rollup-plugin-terser';
-// import sveltePreprocess from 'svelte-preprocess';
 import sveltePreprocessPostcss from 'svelte-preprocess-postcss'
 
 const production = !process.env.ROLLUP_WATCH;
-// const preprocess = sveltePreprocess({ postcss: true });
 const stylePreprocessor = sveltePreprocessPostcss({
     configFilePath: '',
     useConfigFile: true,
@@ -34,7 +32,7 @@ export default {
 			preprocess: {
                 style: stylePreprocessor
             },
-			// emitCss: true,
+			emitCss: true,
 			css: css => {
 				css.write('public/build/bundle.css');
 			}
