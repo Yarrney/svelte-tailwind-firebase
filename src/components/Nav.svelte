@@ -43,7 +43,7 @@
 		<li>
 			<a class='{segment === undefined ? "text-primary" : ""}' href='.'>
 				<svg>
-					<use xlink:href="solid.svg#home"></use>
+					<use xlink:href="assets/solid.svg#home"></use>
 				</svg>
 				<p>home<p>
 			</a>
@@ -51,7 +51,7 @@
 		<li>
 			<a rel=prefetch class='{segment === "blog" ? "text-primary" : ""}' href='blog'>
 				<svg>
-					<use xlink:href="solid.svg#calendar-check"></use>
+					<use xlink:href="assets/solid.svg#calendar-check"></use>
 				</svg>
 				<p>blog<p>
 			</a>
@@ -59,7 +59,7 @@
 		<li>
 			<a class='{segment === "settings" ? "text-primary" : ""}' href='settings'>
 				<svg>
-					<use xlink:href="solid.svg#cog"></use>
+					<use xlink:href="assets/solid.svg#cog"></use>
 				</svg>
 				<p>settings<p>
 			</a>
