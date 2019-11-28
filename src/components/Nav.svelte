@@ -1,5 +1,6 @@
 <script>
-	export let segment;
+	import {link, push, pop} from 'svelte-spa-router';
+	import active from 'svelte-spa-router/active';
 </script>
 
 <style>
@@ -16,10 +17,15 @@
 		@apply hidden;
 	}
 
+	:global(a.active) {
+		@apply text-primary;
+	}
+
 	@screen md {
-		.selected {
-			@apply text-secondary border-solid border-b-2 border-purple-700;
+		:global(a.active) {
+			@apply text-secondary border-solid border-b-2;
 			padding-top: 2px;
+			border-color: var(--color-text-secondary);
 		}
 
 		svg {
@@ -41,7 +47,7 @@
 <nav class="bg-primary md:bg-secondary font-light text-default md:text-default h-16 w-full fixed md:mt-16 bottom-0 md:bottom-auto">
 	<ul class="flex flex-row items-center justify-around md:justify-start md:mx-8 h-full">
 		<li>
-			<a class='{segment === undefined ? "text-primary" : ""}' href='.'>
+			<a href='/' use:link use:active>
 				<svg>
 					<use xlink:href="assets/solid.svg#home"></use>
 				</svg>
@@ -49,7 +55,7 @@
 			</a>
 		</li>
 		<li>
-			<a rel=prefetch class='{segment === "blog" ? "text-primary" : ""}' href='blog'>
+			<a href='/blog' use:link use:active>
 				<svg>
 					<use xlink:href="assets/solid.svg#calendar-check"></use>
 				</svg>
@@ -57,7 +63,7 @@
 			</a>
 		</li>
 		<li>
-			<a class='{segment === "settings" ? "text-primary" : ""}' href='settings'>
+			<a href='/settings' use:link use:active>
 				<svg>
 					<use xlink:href="assets/solid.svg#cog"></use>
 				</svg>

@@ -3,17 +3,12 @@ import livereload from 'rollup-plugin-livereload';
 import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import svelte from 'rollup-plugin-svelte';
+import sveltePreprocess from 'svelte-preprocess';
 import { terser } from 'rollup-plugin-terser';
-import sveltePreprocessPostcss from 'svelte-preprocess-postcss'
 
+const dedupe = importee => importee === 'svelte' || importee.startsWith('svelte/')
 const production = !process.env.ROLLUP_WATCH;
-const stylePreprocessor = sveltePreprocessPostcss({
-    configFilePath: '',
-    useConfigFile: true,
-    plugins: [
-        require('precss')
-    ]
-})
+const preprocess = sveltePreprocess({ postcss: true });
 
 export default {
 	input: 'src/main.js',
@@ -24,22 +19,17 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
-		postcss({
-			extract: true
-		}),
 		svelte({
 			dev: !production,
-			preprocess: {
-                style: stylePreprocessor
-            },
+			preprocess,
 			emitCss: true,
-			css: css => {
-				css.write('public/build/bundle.css');
-			}
 		}),
 		resolve({
 			browser: true,
-			dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
+			dedupe
+		}),
+		postcss({
+			extract: true,
 		}),
 		commonjs(),
 		!production && serve(),

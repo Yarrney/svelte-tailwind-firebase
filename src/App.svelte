@@ -3,6 +3,8 @@
 	import { darkTheme } from './components/stores.js';
 	import Theme from './components/Theme.svelte';
 	import Nav from './components/Nav.svelte';
+	import Router from 'svelte-spa-router';
+	import routes from './routes';
 </script>
 
 <div class="{$darkTheme ? "theme-dark" : "theme-basic"} bg-default h-full min-h-screen">
@@ -11,10 +13,10 @@
 		This is a title.
 	</div>
 
-	<Nav {segment}/>
+	<Nav />
 
 	<main class="text-default pt-20 md:pt-40 px-8 pb-8 max-w-4xl mx-auto">
-		<slot></slot>
+		<Router {routes} />
 		<Theme classes={"mt-12 mx-auto md:mx-0 flex"}/>
 	</main>
 </div>

@@ -11,6 +11,8 @@
   --color-bg-secondary: #CBD5E0; /* grey-400 */
   --color-bg-default: #fff; /* white */
   --color-bg-inverse: #3f3d56; /* dark grey */
+  --color-border-primary: #fff; /* white */
+  --color-broder-secondary: #38b2ac; /* teal */
 }
 
 .theme-dark {
