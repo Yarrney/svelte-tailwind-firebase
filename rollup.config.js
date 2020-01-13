@@ -1,4 +1,5 @@
 import commonjs from 'rollup-plugin-commonjs';
+import dotenv from 'rollup-plugin-dotenv';
 import livereload from 'rollup-plugin-livereload';
 import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
@@ -19,6 +20,7 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
+		dotenv(),
 		svelte({
 			dev: !production,
 			preprocess,
@@ -57,3 +59,11 @@ function serve() {
 		}
 	};
 }
+
+		// 	FIREBASE_APP_API_KEY: process.env.FIREBASE_APP_API_KEY,
+		//   FIREBASE_APP_AUTH_DOMAIN: process.env.FIREBASE_APP_AUTH_DOMAIN,
+		//   FIREBASE_APP_DATABASE_URL: process.env.FIREBASE_APP_DATABASE_URL,
+		//   FIREBASE_APP_PROJECT_ID: process.env.FIREBASE_APP_PROJECT_ID,
+		//   FIREBASE_APP_STORAGE_BUCKET: process.env.FIREBASE_APP_STORAGE_BUCKET,
+		//   FIREBASE_APP_MESSAGING_SENDER_ID: process.env.FIREBASE_APP_MESSAGING_SENDER_ID,
+		//   FIREBASE_APP_APP_ID: process.env.FIREBASE_APP_APP_ID,
