@@ -1,6 +1,8 @@
-# Svelte + TailwindCSS Example
+# Svelte + TailwindCSS + Firebase Example
 
 Basic template for integration of Tailwind CSS with Svelte JS. Designed to be used for a single page application (SPA).  
+
+This has also been setup to use Firebase (Firestore, eventually auth, and hosting).
 
 If you need server side rendering (SSR) then consider [Sapper](https://sapper.svelte.dev/) - I've also made a tempalate for this, visit [sapper-tailwind-firebase-host](https://github.com/Yarrney/sapper-tailwind-firebase-host).
 
@@ -15,4 +17,4 @@ Simply clone the repo via degit and have a blast!
 `npx degit Yarrney/svelte-tailwindCSS` 
 
 ## Example
-Check out [this example](https://svelte-tailwindcss.yarrney.now.sh/) if you want to see what it looks like! 
+Check out [this example](https://svelte-tailwind-firebase.firebaseapp.com/) if you want to see what it looks like! 
