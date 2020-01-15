@@ -1,5 +1,4 @@
 <script>
-	export let segment;
 	import { darkTheme } from './components/stores.js';
 	import Theme from './components/Theme.svelte';
 	import Nav from './components/Nav.svelte';
